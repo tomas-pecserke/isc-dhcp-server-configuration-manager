@@ -2,7 +2,7 @@
 namespace Pecserke\Bundle\IcsDhcpServerManagementBundle\Command\Host;
 
 use Pecserke\Component\IcsDhcpServer\Configuration\Host;
-use Pecserke\Component\IcsDhcpServer\Parser\Parser;
+use Pecserke\Component\IcsDhcpServer\Parser\HostParser;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
@@ -15,7 +15,7 @@ class ListCommand extends Command {
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
-        $parser = new Parser();
+        $parser = new HostParser();
         $config = $parser->parseFile(__DIR__ . '/../../Tests/Fixtures/hosts.conf');
 
         $table = new Table($output);

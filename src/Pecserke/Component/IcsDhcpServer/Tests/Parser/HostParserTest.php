@@ -2,12 +2,12 @@
 namespace Pecserke\Component\IcsDhcpServer\Tests\Parser;
 
 use Pecserke\Component\IcsDhcpServer\Configuration\Config;
-use Pecserke\Component\IcsDhcpServer\Parser\Parser;
+use Pecserke\Component\IcsDhcpServer\Parser\HostParser;
 
-class ParserTest extends \PHPUnit_Framework_TestCase {
+class HostParserTest extends \PHPUnit_Framework_TestCase {
     public function testParse() {
         $source = file_get_contents(__DIR__.'/../Fixtures/hosts.conf');
-        $parser = new Parser();
+        $parser = new HostParser();
         $config = $parser->parse($source);
 
         $this->assertInstanceOf(Config::class, $config);
@@ -33,7 +33,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase {
     }
 
     public function testParseEmpty() {
-        $parser = new Parser();
+        $parser = new HostParser();
         $config = $parser->parse('');
 
         $this->assertEmpty($config->getHosts());

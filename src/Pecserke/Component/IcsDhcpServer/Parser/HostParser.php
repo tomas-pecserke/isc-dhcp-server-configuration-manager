@@ -4,9 +4,9 @@ namespace Pecserke\Component\IcsDhcpServer\Parser;
 use Hoa\Compiler\Llk\Llk;
 use Hoa\File\Read;
 use Pecserke\Component\IcsDhcpServer\Configuration\Config;
-use Pecserke\Component\IcsDhcpServer\Parser\Visitor\ConfigVisitor;
+use Pecserke\Component\IcsDhcpServer\Parser\Visitor\Configuration\ConfigVisitor;
 
-class Parser {
+class HostParser {
     /**
      * @var \Hoa\Compiler\Llk\Parser
      */
@@ -34,7 +34,7 @@ class Parser {
 
             return $this->visitor->visit($ast);
         } catch (\Exception $e) {
-            throw new FormatException('invalid configuration', $e->getCode(), $e);
+            throw new FormatException($e->getMessage(), $e->getCode(), $e);
         }
     }
 

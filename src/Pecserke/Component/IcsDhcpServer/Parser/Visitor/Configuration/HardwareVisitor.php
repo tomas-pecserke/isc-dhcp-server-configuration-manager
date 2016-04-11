@@ -1,13 +1,14 @@
 <?php
-namespace Pecserke\Component\IcsDhcpServer\Parser\Visitor;
+namespace Pecserke\Component\IcsDhcpServer\Parser\Visitor\Configuration;
 
+use Hoa\Compiler\Llk\TreeNode;
 use Hoa\Visitor\Element;
 use Hoa\Visitor\Visit;
 use Pecserke\Component\IcsDhcpServer\Configuration\Hardware;
 
 class HardwareVisitor implements Visit {
     public function visit(Element $element, &$handle = null, $eldnah = null) {
-        if ($element->getId() !== '#hardware') {
+        if (!$element instanceof TreeNode || $element->getId() !== '#hardware') {
             throw new \InvalidArgumentException($element->getId());
         }
 

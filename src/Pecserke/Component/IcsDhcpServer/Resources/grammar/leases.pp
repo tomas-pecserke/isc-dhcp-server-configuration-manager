@@ -31,6 +31,22 @@
 %token ddnsFwdName ddns-fwd-name
 %token ddnsClientFqdn ddns-client-fqdn
 %token ddnsRevName ddns-rev-name
+%token failOverPeer failover peer
+%token myState my state
+%token peerState peer state
+%token at at
+
+%token unknownState unknown-state
+%token partnerDown partner-down
+%token normal normal
+%token communicationsInterrupted communications-interrupted
+%token resolutionInterrupted resolution-interrupted
+%token potentialConflict potential-conflict
+%token recover recover
+%token recoverDone recover-done
+%token shutdown shutdown
+%token paused paused
+%token startup startup
 
 %token agentCircuitId agent\.circuit-id
 %token agentRemoteId agent\.remote-id
@@ -52,7 +68,7 @@
 %token semicolon ;
 
 #leaseFile:
-    ( comment() | lease() )*
+    ( comment() | lease() | failOverPeer() )*
 
 comment:
     ::commentStart:: <commentBody> ::commentEnd::
@@ -76,7 +92,7 @@ dateNever:
     <never>
 
 leaseBody:
-    ( leaseDate() | clientData() | leaseState() | leaseConfiguration() )*
+    ( leaseDate() | clientData() | leaseState() | leaseConfiguration() | failOverPeer() )*
 
 leaseDate:
     starts() | ends() | tstp() | tsfp() | atsfp() | cltt()
@@ -176,3 +192,21 @@ variableValue:
 
 #ddnsRevName:
     ::ddnsRevName:: <whatever> ::semicolon::
+
+#failOverPeer:
+    ::failOverPeer:: peerName() ::brace_:: failOverPeerBody() ::_brace::
+
+#peerName:
+    <quotedString>
+
+failOverPeerBody:
+    ( failOverMyState() | failOverPeerState() )*
+
+#failOverMyState:
+    ::myState:: failOverState() ::at:: date() ::semicolon::
+
+#failOverPeerState:
+    ::peerState:: failOverState() ::at:: date() ::semicolon::
+
+#failOverState:
+    <unknownState> | <partnerDown> | <normal> | <communicationsInterrupted> | <resolutionInterrupted> | <potentialConflict> | <recover> | <recoverDone> | <shutdown> | <paused> | <startup>
