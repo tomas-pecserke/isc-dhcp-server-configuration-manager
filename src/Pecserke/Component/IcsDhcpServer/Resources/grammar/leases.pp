@@ -1,9 +1,7 @@
 %skip space \s
 
 // Scalars
-%token commentStart # -> comment
-%token commentBody [^\n]*
-%token commentEnd \n -> default
+%token comment #[^\n]*\n
 
 %token lease lease
 %token starts starts
@@ -22,12 +20,13 @@
 %token free free
 %token backup backup
 %token next next
+%token rewind rewind
 %token option option
 %token set set
 %token equals =
 %token bootp bootp
 %token reserved reserved
-%token ddnsText ddns-text
+%token ddnsTxt ddns-txt
 %token ddnsFwdName ddns-fwd-name
 %token ddnsClientFqdn ddns-client-fqdn
 %token ddnsRevName ddns-rev-name
@@ -35,6 +34,7 @@
 %token myState my state
 %token peerState peer state
 %token at at
+%token uid uid
 
 %token unknownState unknown-state
 %token partnerDown partner-down
@@ -54,16 +54,13 @@
 %token ip \d{1,3}(\.\d{1,3}){3}
 %token defaultDate \d \d+/\d+/\d+ \d+:\d+:\d+
 %token epoch epoch
-%token timestamp \d+
 %token never never
-%token hardwareAddress [0-9a-fA-F]{1,2}(:[0-9a-fA-F]{1,2})*
+%token hardwareAddress [0-9a-fA-F]{1,2}(:[0-9a-fA-F]{1,2})+
 %token quotedString "[^"]*"
-%token variableName [a-zA-Z]+(-[a-zA-Z]+)*
+%token timestamp \d+
 
 %token brace_ {
 %token _brace }
-
-%token whatever [^;]+
 
 %token semicolon ;
 
@@ -71,7 +68,7 @@
     ( comment() | lease() | failOverPeer() )*
 
 comment:
-    ::commentStart:: <commentBody> ::commentEnd::
+    ::comment::
 
 #lease:
     ::lease:: ip() ::brace_:: leaseBody() ::_brace::
@@ -80,7 +77,7 @@ comment:
     <ip>
 
 date:
-    defaultDate() | localDate() | never()
+    defaultDate() | localDate() | dateNever()
 
 defaultDate:
     <defaultDate>
@@ -101,13 +98,10 @@ clientData:
     hardware() | uid() | clientHostname()
 
 leaseState:
-    abandoned() | bootp() | reserved() | bindingState() | nextBindingState()
+    abandoned() | bootp() | reserved() | bindingState() | nextBindingState() | rewindBindingState()
 
 leaseConfiguration:
-    option() | set() | leaseDdnsConfiguration()
-
-leaseDdnsConfiguration:
-    ddnsText() | ddnsFwdName() | ddnsClientFqdn() | ddnsRevName()
+    option() | set()
 
 #starts:
     ::starts:: date() ::semicolon::
@@ -157,8 +151,11 @@ clientIdentifier:
 #bindingState:
     ::bindingState:: state() ::semicolon::
 
-nextBindingState:
+#nextBindingState:
     ::next:: ::bindingState:: state() ::semicolon::
+
+#rewindBindingState:
+    ::rewind:: ::bindingState:: state() ::semicolon::
 
 state:
     <active> | <free> | <backup>
@@ -170,28 +167,16 @@ optionName:
     <agentCircuitId> | <agentRemoteId>
 
 optionValue:
-    <whatever>
+    <quotedString>
 
 #set:
     ::set:: variableName() ::equals:: variableValue() ::semicolon::
 
-variableName:
-    <variableName>
+#variableName:
+    <ddnsTxt> | <ddnsFwdName> | <ddnsClientFqdn> | <ddnsRevName>
 
-variableValue:
-    <whatever>
-
-#ddnsText:
-    ::ddnsText:: <whatever> ::semicolon::
-
-#ddnsFwdName:
-    ::ddnsFwdName:: <whatever> ::semicolon::
-
-#ddnsClientFqdn:
-    ::ddnsClientFqdn:: <whatever> ::semicolon::
-
-#ddnsRevName:
-    ::ddnsRevName:: <whatever> ::semicolon::
+#variableValue:
+    <quotedString>
 
 #failOverPeer:
     ::failOverPeer:: peerName() ::brace_:: failOverPeerBody() ::_brace::

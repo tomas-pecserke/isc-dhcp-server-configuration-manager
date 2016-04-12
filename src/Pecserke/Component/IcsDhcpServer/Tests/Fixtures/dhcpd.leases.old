@@ -1,0 +1,409 @@
+# The format of this file is documented in the dhcpd.leases(5) manual page.
+# This lease file was written by isc-dhcp-4.3.3
+
+lease 192.168.33.200 {
+  starts 5 2016/03/11 13:44:55;
+  ends 5 2016/03/11 13:46:25;
+  tstp 5 2016/03/11 13:46:25;
+  cltt 5 2016/03/11 13:44:55;
+  binding state free;
+  hardware ethernet 00:16:3e:8f:e4:dc;
+}
+lease 192.168.33.201 {
+  starts 5 2016/03/11 17:18:35;
+  ends 5 2016/03/11 17:23:35;
+  tstp 5 2016/03/11 17:23:35;
+  cltt 5 2016/03/11 17:18:35;
+  binding state free;
+  hardware ethernet 00:16:3e:40:1f:d6;
+  set ddns-fwd-name = "unifi.office.maind.sk.";
+  set ddns-txt = "007c8c82a115e5f7241c4b513c0bccfb27";
+}
+lease 192.168.33.202 {
+  starts 2 2016/03/15 16:17:47;
+  ends 2 2016/03/15 16:22:37;
+  tstp 2 2016/03/15 16:22:37;
+  cltt 2 2016/03/15 16:17:47;
+  binding state free;
+  hardware ethernet 00:08:9b:f1:a6:3a;
+  uid "\001\000\010\233\361\246:";
+}
+lease 192.168.33.203 {
+  starts 4 2016/04/07 13:10:08;
+  ends 4 2016/04/07 13:15:08;
+  tstp 4 2016/04/07 13:15:08;
+  cltt 4 2016/04/07 13:10:08;
+  binding state free;
+  hardware ethernet 00:16:3e:98:6f:8f;
+  set ddns-rev-name = "203.33.168.192.in-addr.arpa.";
+  set ddns-txt = "006557af9e24d9f96f5e9248c57d531d2a";
+  set ddns-fwd-name = "kerberos.office.maind.sk.";
+}
+lease 192.168.33.204 {
+  starts 4 2016/04/07 13:46:40;
+  ends 4 2016/04/07 13:47:11;
+  tstp 4 2016/04/07 13:47:11;
+  cltt 4 2016/04/07 13:46:40;
+  binding state free;
+  hardware ethernet 00:16:3e:3f:a6:fa;
+}
+lease 192.168.33.205 {
+  starts 4 2016/04/07 13:52:03;
+  ends 4 2016/04/07 13:57:03;
+  tstp 4 2016/04/07 13:57:03;
+  cltt 4 2016/04/07 13:52:03;
+  binding state free;
+  hardware ethernet 00:16:3e:04:03:c2;
+  set ddns-fwd-name = "kdc01.office.maind.sk.";
+  set ddns-txt = "00d5df58c880fd3a20b2424b27db9b4a80";
+  set ddns-rev-name = "205.33.168.192.in-addr.arpa.";
+}
+lease 192.168.33.206 {
+  starts 5 2016/04/08 11:47:51;
+  ends 5 2016/04/08 11:48:30;
+  tstp 5 2016/04/08 11:48:30;
+  cltt 5 2016/04/08 11:47:51;
+  binding state free;
+  hardware ethernet 00:16:3e:c3:3a:4f;
+}
+lease 192.168.33.207 {
+  starts 5 2016/04/08 13:10:22;
+  ends 5 2016/04/08 13:15:22;
+  tstp 5 2016/04/08 13:15:22;
+  cltt 5 2016/04/08 13:10:22;
+  binding state free;
+  hardware ethernet 52:54:00:16:5f:3e;
+}
+lease 192.168.33.209 {
+  starts 1 2016/04/11 10:45:28;
+  ends 1 2016/04/11 10:46:20;
+  tstp 1 2016/04/11 10:46:20;
+  cltt 1 2016/04/11 10:45:28;
+  binding state free;
+  hardware ethernet 00:16:3e:4d:7c:7d;
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 19:43:40;
+  ends 1 2016/04/11 19:48:40;
+  cltt 1 2016/04/11 19:43:40;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 19:46:00;
+  ends 1 2016/04/11 19:51:00;
+  cltt 1 2016/04/11 19:46:00;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 19:47:59;
+  ends 1 2016/04/11 19:52:59;
+  cltt 1 2016/04/11 19:47:59;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 19:50:02;
+  ends 1 2016/04/11 19:55:02;
+  cltt 1 2016/04/11 19:50:02;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 19:52:26;
+  ends 1 2016/04/11 19:57:26;
+  cltt 1 2016/04/11 19:52:26;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 19:54:36;
+  ends 1 2016/04/11 19:59:36;
+  cltt 1 2016/04/11 19:54:36;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 19:56:55;
+  ends 1 2016/04/11 20:01:55;
+  cltt 1 2016/04/11 19:56:55;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 19:59:04;
+  ends 1 2016/04/11 20:04:04;
+  cltt 1 2016/04/11 19:59:04;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:01:14;
+  ends 1 2016/04/11 20:06:14;
+  cltt 1 2016/04/11 20:01:14;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:03:43;
+  ends 1 2016/04/11 20:08:43;
+  cltt 1 2016/04/11 20:03:43;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:05:48;
+  ends 1 2016/04/11 20:10:48;
+  cltt 1 2016/04/11 20:05:48;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:08:12;
+  ends 1 2016/04/11 20:13:12;
+  cltt 1 2016/04/11 20:08:12;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:10:06;
+  ends 1 2016/04/11 20:15:06;
+  cltt 1 2016/04/11 20:10:06;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:12:29;
+  ends 1 2016/04/11 20:17:29;
+  cltt 1 2016/04/11 20:12:29;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:14:42;
+  ends 1 2016/04/11 20:19:42;
+  cltt 1 2016/04/11 20:14:42;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:16:46;
+  ends 1 2016/04/11 20:21:46;
+  cltt 1 2016/04/11 20:16:46;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:19:02;
+  ends 1 2016/04/11 20:24:02;
+  cltt 1 2016/04/11 20:19:02;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:21:08;
+  ends 1 2016/04/11 20:26:08;
+  cltt 1 2016/04/11 20:21:08;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:23:06;
+  ends 1 2016/04/11 20:28:06;
+  cltt 1 2016/04/11 20:23:06;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:25:15;
+  ends 1 2016/04/11 20:30:15;
+  cltt 1 2016/04/11 20:25:15;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:27:22;
+  ends 1 2016/04/11 20:32:22;
+  cltt 1 2016/04/11 20:27:22;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:29:39;
+  ends 1 2016/04/11 20:34:39;
+  cltt 1 2016/04/11 20:29:39;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:31:48;
+  ends 1 2016/04/11 20:36:48;
+  cltt 1 2016/04/11 20:31:48;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:34:08;
+  ends 1 2016/04/11 20:39:08;
+  cltt 1 2016/04/11 20:34:08;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}
+lease 192.168.33.208 {
+  starts 1 2016/04/11 20:36:15;
+  ends 1 2016/04/11 20:41:15;
+  cltt 1 2016/04/11 20:36:15;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  client-hostname "util";
+}

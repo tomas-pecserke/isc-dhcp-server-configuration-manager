@@ -2,10 +2,10 @@
 namespace Pecserke\Component\IcsDhcpServer\Parser;
 
 use Hoa\Visitor\Visit;
-use Pecserke\Component\IcsDhcpServer\Configuration\Config;
-use Pecserke\Component\IcsDhcpServer\Parser\Visitor\Configuration\ConfigVisitor;
+use Pecserke\Component\IcsDhcpServer\Lease\LeaseFile;
+use Pecserke\Component\IcsDhcpServer\Parser\Visitor\Lease\LeaseFileVisitor;
 
-class HostParser extends AbstractParser {
+class LeaseParser extends AbstractParser {
     /**
      * @var Visit
      */
@@ -13,11 +13,11 @@ class HostParser extends AbstractParser {
 
     public function __construct() {
         parent::__construct();
-        $this->visitor = new ConfigVisitor();
+        $this->visitor = new LeaseFileVisitor();
     }
 
     protected function getGrammar() {
-        return __DIR__ . '/../Resources/grammar/isc-dhcp-server-min.pp';
+        return __DIR__ . '/../Resources/grammar/leases.pp';
     }
 
     protected function getVisitor() {
@@ -26,7 +26,7 @@ class HostParser extends AbstractParser {
 
     /**
      * @param string $source
-     * @return Config
+     * @return LeaseFile
      * @throws FormatException
      */
     public function parse($source) {
@@ -35,7 +35,7 @@ class HostParser extends AbstractParser {
 
     /**
      * @param resource $handle
-     * @return Config
+     * @return LeaseFile
      * @throws FormatException
      */
     public function parseStream($handle) {
@@ -44,7 +44,7 @@ class HostParser extends AbstractParser {
 
     /**
      * @param string $filename
-     * @return Config
+     * @return LeaseFile
      * @throws FormatException
      */
     public function parseFile($filename) {
