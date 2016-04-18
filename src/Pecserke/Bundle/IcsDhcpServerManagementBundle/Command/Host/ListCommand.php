@@ -16,7 +16,7 @@ class ListCommand extends Command {
 
     protected function execute(InputInterface $input, OutputInterface $output) {
         $parser = new HostParser();
-        $config = $parser->parseFile(__DIR__ . '/../../Tests/Fixtures/hosts.conf');
+        $config = $parser->parseFile(__DIR__ . '/../../../../Component/IcsDhcpServer/Tests/Fixtures/hosts.conf');
 
         $table = new Table($output);
         $table->setHeaders(['Name', 'HW Type', 'HW Address', 'Fixed Address', 'DDNS Hostname']);
