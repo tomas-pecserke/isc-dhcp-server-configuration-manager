@@ -1,3 +1,3 @@
 pecserke_ics_dhcp_server_management:
     resource: "@PecserkeIcsDhcpServerManagementBundle/Controller/"
-    type:     annotation
+    type: annotation

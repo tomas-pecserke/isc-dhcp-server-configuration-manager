@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ListCommand extends Command {
-    const FORMAT = 'Y-m-j H:i:s';
+    const DATE_FORMAT = 'Y-m-j H:i:s';
 
     protected function configure() {
         $this->setName('lease:list');
@@ -51,7 +51,7 @@ class ListCommand extends Command {
         return [
             $lease->getIp()->getAddress(),
             $lease->getClientHostname(),
-            $lease->getEnds()->format(self::FORMAT),
+            $lease->getEnds()->format(self::DATE_FORMAT),
             $lease->getBindingState(),
         ];
     }
