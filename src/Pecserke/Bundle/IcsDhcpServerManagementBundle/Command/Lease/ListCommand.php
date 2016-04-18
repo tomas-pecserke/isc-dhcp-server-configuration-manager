@@ -2,13 +2,12 @@
 namespace Pecserke\Bundle\IcsDhcpServerManagementBundle\Command\Lease;
 
 use Pecserke\Component\IcsDhcpServer\Lease\Lease;
-use Pecserke\Component\IcsDhcpServer\Parser\LeaseParser;
-use Symfony\Component\Console\Command\Command;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ListCommand extends Command {
+class ListCommand extends ContainerAwareCommand {
     const DATE_FORMAT = 'Y-m-j H:i:s';
 
     protected function configure() {
@@ -17,10 +16,9 @@ class ListCommand extends Command {
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
-        $parser = new LeaseParser();
-        $leaseFile = $parser->parseFile(__DIR__ . '/../../../../Component/IcsDhcpServer/Tests/Fixtures/dhcpd.leases');
+        $repo = $this->getContainer()->get('pecserke_ics_dhcp_server_management.repository.lease');
 
-        $leases = array_filter($leaseFile->getLeases(), function(Lease $lease) {
+        $leases = array_filter($repo->getLeases(), function(Lease $lease) {
             return $lease->getBindingState() === 'active';
         });
         uksort($leases, function($address1, $address2) {
