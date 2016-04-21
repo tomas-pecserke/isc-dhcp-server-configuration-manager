@@ -1,3 +1,14 @@
 services:
+    pecserke_ics_dhcp_server_management.parser.lease:
+        class: Pecserke\Component\IcsDhcpServer\Parser\LeaseParser
+
+    pecserke_ics_dhcp_server_management.parser.host:
+        class: Pecserke\Component\IcsDhcpServer\Parser\HostParser
+
     pecserke_ics_dhcp_server_management.repository.lease:
         class: Pecserke\Bundle\IcsDhcpServerManagementBundle\Repository\LeaseRepository
+        arguments: [ "@pecserke_ics_dhcp_server_management.parser.lease" ]
+
+    pecserke_ics_dhcp_server_management.repository.host:
+        class: Pecserke\Bundle\IcsDhcpServerManagementBundle\Repository\HostRepository
+        arguments: [ "@pecserke_ics_dhcp_server_management.parser.host" ]

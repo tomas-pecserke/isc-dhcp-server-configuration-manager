@@ -15,8 +15,8 @@ class LeaseRepository {
      */
     private $leaseFile = __DIR__ . '/../../../Component/IcsDhcpServer/Tests/Fixtures/dhcpd.leases';
 
-    public function __construct() {
-        $this->parser = new LeaseParser();
+    public function __construct(LeaseParser $parser) {
+        $this->parser = $parser;
     }
 
     /**
