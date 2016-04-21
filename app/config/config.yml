@@ -10,30 +10,33 @@ parameters:
     locale: en
 
 framework:
-    #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
-    secret:          "%secret%"
+    esi:
+        enabled: true
+    translator:
+        fallbacks: [ "%locale%" ]
+    secret: "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
-    form:            ~
+    form: ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }
+    validation:
+        enable_annotations: true
     #serializer:      { enable_annotations: true }
     templating:
-        engines: ['twig']
-    default_locale:  "%locale%"
-    trusted_hosts:   ~
+        engines: [ 'twig' ]
+    default_locale: "%locale%"
+    trusted_hosts: ~
     trusted_proxies: ~
     session:
         # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id:  session.handler.native_file
         save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
-    fragments:       ~
+    fragments: ~
     http_method_override: true
     assets: ~
 
 # Twig Configuration
 twig:
-    debug:            "%kernel.debug%"
+    debug: "%kernel.debug%"
     strict_variables: "%kernel.debug%"

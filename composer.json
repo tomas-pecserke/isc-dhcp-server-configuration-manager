@@ -1,10 +1,10 @@
 {
-    "name": "nh/.checkout",
-    "license": "proprietary",
+    "name": "tomas-pecserke/isc-dhcp-server-configuration-manager",
+    "license": "MIT",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "Pecserke\\": "src/Pecserke/"
         },
         "classmap": [
             "app/AppKernel.php",
@@ -18,11 +18,12 @@
     },
     "require": {
         "php": ">=5.5.9",
-        "symfony/symfony": "3.0.*",
-        "symfony/monolog-bundle": "^2.8",
-        "sensio/distribution-bundle": "^5.0",
+        "ext-apcu": "*",
+        "symfony/symfony": "~3.0",
+        "symfony/monolog-bundle": "~2.8",
+        "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
-        "incenteev/composer-parameter-handler": "^2.0",
+        "incenteev/composer-parameter-handler": "~2.0",
         "hoa/compiler": "~3.0"
     },
     "require-dev": {
