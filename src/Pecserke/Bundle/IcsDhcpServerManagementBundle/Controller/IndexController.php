@@ -10,9 +10,11 @@ class IndexController extends Controller {
      */
     public function indexAction() {
         $leases = $this->get('pecserke_ics_dhcp_server_management.repository.lease')->getNonFreeLeases();
+        $hosts = $this->get('pecserke_ics_dhcp_server_management.repository.host')->getHosts();
 
         return $this->render('PecserkeIcsDhcpServerManagementBundle:Index:index.html.twig', [
-            'leases' => $leases
+            'leases' => $leases,
+            'hosts' => $hosts
         ]);
     }
 }

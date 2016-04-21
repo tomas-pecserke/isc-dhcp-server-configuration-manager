@@ -24,4 +24,28 @@
             {% endfor %}
         </tbody>
     </table>
+    <h1>Hosts</h1>
+
+    <table cellpadding="5" border="1">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>MAC</th>
+            <th>Fixed Address</th>
+            <th>DDNS Hostname</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for host in hosts %}
+            <tr>
+                <td style="text-align: right">{{ loop.index }}</td>
+                <td>{{ host.name }}</td>
+                <td>{{ host.hardware.address }}</td>
+                <td>{{ host.fixedAddress|join(',') }}</td>
+                <td>{{ host.ddnsHostname }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
