@@ -1,5 +1,6 @@
 {
     "name": "tomas-pecserke/isc-dhcp-server-configuration-manager",
+    "description": "Configuration manager for isc-dhcp-server",
     "license": "MIT",
     "type": "project",
     "autoload": {
