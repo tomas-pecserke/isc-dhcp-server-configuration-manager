@@ -17,6 +17,7 @@
             "Tests\\": "tests/"
         }
     },
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.5.9",
         "ext-apcu": "*",
@@ -28,8 +29,8 @@
         "hoa/compiler": "~3.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "sensio/generator-bundle": "~3.0",
+        "symfony/phpunit-bridge": "~3.0"
     },
     "scripts": {
         "post-install-cmd": [
@@ -48,11 +49,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ]
-    },
-    "config": {
-        "platform": {
-            "php": "5.5.9"
-        }
     },
     "extra": {
         "symfony-app-dir": "app",
