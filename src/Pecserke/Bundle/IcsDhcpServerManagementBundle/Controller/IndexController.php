@@ -9,7 +9,7 @@ class IndexController extends Controller {
      * @Route(path="/", name="homepage", methods={"GET"})
      */
     public function indexAction() {
-        $leases = $this->get('pecserke_ics_dhcp_server_management.repository.lease')->getNonFreeLeases();
+        $leases = $this->get('pecserke_ics_dhcp_server_management.repository.lease')->getActiveFreeLeases();
         $hosts = $this->get('pecserke_ics_dhcp_server_management.repository.host')->getHosts();
 
         return $this->render('PecserkeIcsDhcpServerManagementBundle:Index:index.html.twig', [

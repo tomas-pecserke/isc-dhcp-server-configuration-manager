@@ -34,6 +34,14 @@ class LeaseVisitor implements Visit {
                     $date = $this->parseDate($child->getChild(0)->getValueValue());
                     $lease->setTstp($date);
                     break;
+                case '#tsfp':
+                    $date = $this->parseDate($child->getChild(0)->getValueValue());
+                    $lease->setTsfp($date);
+                    break;
+                case '#atsfp':
+                    $date = $this->parseDate($child->getChild(0)->getValueValue());
+                    $lease->setAtsfp($date);
+                    break;
                 case '#cltt':
                     $date = $this->parseDate($child->getChild(0)->getValueValue());
                     $lease->setCltt($date);

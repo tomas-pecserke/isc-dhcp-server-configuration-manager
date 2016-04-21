@@ -33,7 +33,7 @@ class ListCommand extends Command {
     protected function execute(InputInterface $input, OutputInterface $output) {
         $table = new Table($output);
         $table->setHeaders(['IP', 'Hostname', 'Expires', 'State']);
-        $table->setRows(array_map([$this, 'prepareTableData'], $this->repository->getNonFreeLeases()));
+        $table->setRows(array_map([$this, 'prepareTableData'], $this->repository->getActiveFreeLeases()));
         $table->render();
     }
 

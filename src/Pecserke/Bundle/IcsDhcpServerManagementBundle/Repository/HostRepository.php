@@ -18,7 +18,7 @@ class HostRepository {
     public function __construct(HostParser $parser) {
         $this->parser = $parser;
         $this->hostFiles = [
-            __DIR__ . '/../../../Component/IcsDhcpServer/Tests/Fixtures/hosts.conf'
+            __DIR__ . '/../../../Component/IcsDhcpServer/Tests/Fixtures/hosts.conf' // FIXME
         ];
     }
 

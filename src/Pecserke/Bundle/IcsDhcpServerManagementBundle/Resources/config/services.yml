@@ -1,4 +1,24 @@
 services:
+    pecserke_ics_dhcp_server_management.ssh.key_store:
+        class: Pecserke\Component\FileLoader\SshKeyStore
+
+    pecserke_ics_dhcp_server_management.loader.scp:
+        class: Pecserke\Component\FileLoader\ScpLoader
+        arguments:
+            - "@pecserke_ics_dhcp_server_management.ssh.key_store"
+
+    pecserke_ics_dhcp_server_management.loader.file:
+        class: Pecserke\Component\FileLoader\FileLoader
+
+    pecserke_ics_dhcp_server_management.loader.chain:
+        class: Pecserke\Component\FileLoader\ChainLoader
+        calls:
+            - [ registerLoader, [ "@pecserke_ics_dhcp_server_management.loader.file" ] ]
+            - [ registerLoader, [ "@pecserke_ics_dhcp_server_management.loader.scp" ] ]
+
+    pecserke_ics_dhcp_server_management.loader:
+        alias: pecserke_ics_dhcp_server_management.loader.chain
+
     pecserke_ics_dhcp_server_management.parser.lease:
         class: Pecserke\Component\IcsDhcpServer\Parser\LeaseParser
 
@@ -7,7 +27,9 @@ services:
 
     pecserke_ics_dhcp_server_management.repository.lease:
         class: Pecserke\Bundle\IcsDhcpServerManagementBundle\Repository\LeaseRepository
-        arguments: [ "@pecserke_ics_dhcp_server_management.parser.lease" ]
+        arguments:
+            - "@pecserke_ics_dhcp_server_management.parser.lease"
+            - "@pecserke_ics_dhcp_server_management.loader"
 
     pecserke_ics_dhcp_server_management.repository.host:
         class: Pecserke\Bundle\IcsDhcpServerManagementBundle\Repository\HostRepository

@@ -27,6 +27,16 @@ class Lease {
     /**
      * @var \DateTime
      */
+    private $tsfp;
+
+    /**
+     * @var \DateTime
+     */
+    private $atsfp;
+
+    /**
+     * @var \DateTime
+     */
     private $cltt;
 
     /**
@@ -118,6 +128,34 @@ class Lease {
      */
     public function setTstp($tstp) {
         $this->tstp = $tstp;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getTsfp() {
+        return $this->tsfp;
+    }
+
+    /**
+     * @param \DateTime $tsfp
+     */
+    public function setTsfp($tsfp) {
+        $this->tsfp = $tsfp;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getAtsfp() {
+        return $this->atsfp;
+    }
+
+    /**
+     * @param \DateTime $atsfp
+     */
+    public function setAtsfp($atsfp) {
+        $this->atsfp = $atsfp;
     }
 
     /**

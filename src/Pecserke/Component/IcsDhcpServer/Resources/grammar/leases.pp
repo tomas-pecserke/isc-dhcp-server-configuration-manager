@@ -31,10 +31,12 @@
 %token ddnsClientFqdn ddns-client-fqdn
 %token ddnsRevName ddns-rev-name
 %token failOverPeer failover peer
+%token state state
 %token myState my state
-%token peerState peer state
+%token partnerState partner state
 %token at at
 %token uid uid
+%token serverDuid server-duid
 
 %token unknownState unknown-state
 %token partnerDown partner-down
@@ -51,10 +53,11 @@
 %token agentCircuitId agent\.circuit-id
 %token agentRemoteId agent\.remote-id
 
-%token ip \d{1,3}(\.\d{1,3}){3}
-%token defaultDate \d \d+/\d+/\d+ \d+:\d+:\d+
 %token epoch epoch
 %token never never
+
+%token ip \d{1,3}(\.\d{1,3}){3}
+%token defaultDate \d \d+/\d+/\d+ \d+:\d+:\d+
 %token hardwareAddress [0-9a-fA-F]{1,2}(:[0-9a-fA-F]{1,2})+
 %token quotedString "[^"]*"
 %token timestamp \d+
@@ -65,7 +68,7 @@
 %token semicolon ;
 
 #leaseFile:
-    ( comment() | lease() | failOverPeer() )*
+    ( comment() | lease() | failOverPeer() | serverDuid() )*
 
 comment:
     ::comment::
@@ -89,7 +92,7 @@ dateNever:
     <never>
 
 leaseBody:
-    ( leaseDate() | clientData() | leaseState() | leaseConfiguration() | failOverPeer() )*
+    ( leaseDate() | clientData() | leaseState() | leaseConfiguration() )*
 
 leaseDate:
     starts() | ends() | tstp() | tsfp() | atsfp() | cltt()
@@ -149,15 +152,15 @@ clientIdentifier:
     ::reserved:: ::semicolon::
 
 #bindingState:
-    ::bindingState:: state() ::semicolon::
+    ::bindingState:: stateValue() ::semicolon::
 
 #nextBindingState:
-    ::next:: ::bindingState:: state() ::semicolon::
+    ::next:: ::bindingState:: stateValue() ::semicolon::
 
 #rewindBindingState:
-    ::rewind:: ::bindingState:: state() ::semicolon::
+    ::rewind:: ::bindingState:: stateValue() ::semicolon::
 
-state:
+stateValue:
     <active> | <free> | <backup>
 
 #option:
@@ -179,7 +182,7 @@ optionValue:
     <quotedString>
 
 #failOverPeer:
-    ::failOverPeer:: peerName() ::brace_:: failOverPeerBody() ::_brace::
+    ::failOverPeer:: peerName() ::state:: ::brace_:: failOverPeerBody() ::_brace::
 
 #peerName:
     <quotedString>
@@ -191,7 +194,10 @@ failOverPeerBody:
     ::myState:: failOverState() ::at:: date() ::semicolon::
 
 #failOverPeerState:
-    ::peerState:: failOverState() ::at:: date() ::semicolon::
+    ::partnerState:: failOverState() ::at:: date() ::semicolon::
 
 #failOverState:
     <unknownState> | <partnerDown> | <normal> | <communicationsInterrupted> | <resolutionInterrupted> | <potentialConflict> | <recover> | <recoverDone> | <shutdown> | <paused> | <startup>
+
+#serverDuid:
+    ::serverDuid:: <quotedString> ::semicolon::

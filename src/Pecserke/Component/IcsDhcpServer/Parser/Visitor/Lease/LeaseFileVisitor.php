@@ -32,6 +32,12 @@ class LeaseFileVisitor implements Visit {
                     $lease = $child->accept($this->leaseVisitor, $handle, $eldnah);
                     $leaseFile->addLease($lease);
                     break;
+                case '#failOverPeer':
+                    // TODO implement
+                    break;
+                case '#serverDuid':
+                    // TODO implement
+                    break;
                 default:
                     throw new \InvalidArgumentException($child->getId());
             }
