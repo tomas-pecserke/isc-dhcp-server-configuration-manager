@@ -19,7 +19,7 @@ class LeaseRepository {
     /**
      * @var string
      */
-    private $leaseFile = 'scp://ubuntu@ns1.office.maind.sk:22/var/lib/dhcp/dhcpd.leases'; // FIXME
+    private $leaseFile = 'scp://ubuntu@ns1.office.maind.sk/var/lib/dhcp/dhcpd.leases'; // FIXME
 
     public function __construct(LeaseParser $parser, Loader $loader) {
         $this->parser = $parser;

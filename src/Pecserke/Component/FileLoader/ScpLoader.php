@@ -29,13 +29,13 @@ class ScpLoader extends Loader {
 
     public function load($uri) {
         $matches = [];
-        if (preg_match('/^scp:\\/\\/(([^@]+)@)?([^:]+)(:(\\d+))?(\\/.*)$/', $uri, $matches) === false) {
+        if (preg_match('/^scp:\\/\\/([^@]+)@([^:\\/]+)(:(\\d+))?(\\/.*)$/', $uri, $matches) === false) {
             throw new UnsupportedUriException($uri);
         }
-        $user = $matches[2] ?: $_SERVER['USER'];
-        $host = $matches[3];
-        $port = (int) $matches[5] ?: 22;
-        $path = $matches[6];
+        $user = $matches[1];
+        $host = $matches[2];
+        $port = (int) $matches[4] ?: 22;
+        $path = $matches[5];
         unset($matches);
 
         $ssh = new SSH2($host, $port);
