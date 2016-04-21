@@ -1,0 +1,27 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <h1>Leases</h1>
+    <table cellpadding="5" border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>IP</th>
+                <th>Hostname</th>
+                <th>Expires</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lease in leases %}
+                <tr>
+                    <td style="text-align: right">{{ loop.index }}</td>
+                    <td>{{ lease.ip.address }}</td>
+                    <td>{{ lease.clientHostname|replace({'"': null}) }}</td>
+                    <td>{{ lease.ends|date('Y-m-d H:i:s') }}</td>
+                    <td>{{ lease.bindingState }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
