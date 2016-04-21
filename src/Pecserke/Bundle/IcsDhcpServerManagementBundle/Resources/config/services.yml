@@ -12,3 +12,15 @@ services:
     pecserke_ics_dhcp_server_management.repository.host:
         class: Pecserke\Bundle\IcsDhcpServerManagementBundle\Repository\HostRepository
         arguments: [ "@pecserke_ics_dhcp_server_management.parser.host" ]
+
+    pecserke_ics_dhcp_server_management.command.lease.list:
+        class: Pecserke\Bundle\IcsDhcpServerManagementBundle\Command\Lease\ListCommand
+        arguments: [ "@pecserke_ics_dhcp_server_management.repository.lease" ]
+        tags:
+            -  { name: console.command }
+
+    pecserke_ics_dhcp_server_management.command.host.list:
+        class: Pecserke\Bundle\IcsDhcpServerManagementBundle\Command\Host\ListCommand
+        arguments: [ "@pecserke_ics_dhcp_server_management.repository.host" ]
+        tags:
+            -  { name: console.command }
