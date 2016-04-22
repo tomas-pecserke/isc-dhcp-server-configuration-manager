@@ -26,7 +26,7 @@ class ListCommand extends Command {
 
     protected function execute(InputInterface $input, OutputInterface $output) {
         $table = new Table($output);
-        $table->setHeaders(['Name', 'HW Type', 'HW Address', 'Fixed Address', 'DDNS Hostname']);
+        $table->setHeaders(['Fixed Address', 'Hostname', 'HW Address']);
         $table->setRows(array_map([$this, 'prepareHostData'], $this->repository->getHosts()));
         $table->render();
     }
@@ -37,11 +37,9 @@ class ListCommand extends Command {
      */
     private function prepareHostData(Host $host) {
         return [
-            $host->getName(),
-            $host->getHardware() === null ? null : $host->getHardware()->getType(),
-            $host->getHardware() === null ? null : $host->getHardware()->getAddress(),
             implode(', ', $host->getFixedAddress()),
-            $host->getDdnsHostname()
+            $host->getDdnsHostname(),
+            $host->getHardware() === null ? null : $host->getHardware()->getAddress()
         ];
     }
 }

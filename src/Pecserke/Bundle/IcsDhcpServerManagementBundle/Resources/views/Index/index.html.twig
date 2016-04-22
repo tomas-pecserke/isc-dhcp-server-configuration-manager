@@ -8,8 +8,8 @@
                 <th>#</th>
                 <th>IP</th>
                 <th>Hostname</th>
+                <th>MAC</th>
                 <th>Expires</th>
-                <th>State</th>
             </tr>
         </thead>
         <tbody>
@@ -18,8 +18,8 @@
                     <td style="text-align: right">{{ loop.index }}</td>
                     <td>{{ lease.ip.address }}</td>
                     <td>{{ lease.clientHostname|replace({'"': null}) }}</td>
+                    <td>{{ lease.hardware.address }}</td>
                     <td>{{ lease.ends|date('Y-m-d H:i:s') }}</td>
-                    <td>{{ lease.bindingState }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -30,20 +30,18 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>Name</th>
-            <th>MAC</th>
             <th>Fixed Address</th>
-            <th>DDNS Hostname</th>
+            <th>Hostname</th>
+            <th>MAC</th>
         </tr>
         </thead>
         <tbody>
         {% for host in hosts %}
             <tr>
                 <td style="text-align: right">{{ loop.index }}</td>
-                <td>{{ host.name }}</td>
-                <td>{{ host.hardware.address }}</td>
                 <td>{{ host.fixedAddress|join(',') }}</td>
                 <td>{{ host.ddnsHostname }}</td>
+                <td>{{ host.hardware.address }}</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -32,7 +32,7 @@ class ListCommand extends Command {
 
     protected function execute(InputInterface $input, OutputInterface $output) {
         $table = new Table($output);
-        $table->setHeaders(['IP', 'Hostname', 'Expires', 'State']);
+        $table->setHeaders(['IP', 'Hostname', 'MAC', 'Expires']);
         $table->setRows(array_map([$this, 'prepareTableData'], $this->repository->getActiveFreeLeases()));
         $table->render();
     }
@@ -45,8 +45,8 @@ class ListCommand extends Command {
         return [
             $lease->getIp()->getAddress(),
             $lease->getClientHostname(),
-            $lease->getEnds()->format(self::DATE_FORMAT),
-            $lease->getBindingState(),
+            $lease->getHardware()->getAddress(),
+            $lease->getEnds()->format(self::DATE_FORMAT)
         ];
     }
 }
