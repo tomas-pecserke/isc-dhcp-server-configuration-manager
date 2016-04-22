@@ -1,4 +1,13 @@
 <?php
+/*
+ * This file is part of the isc-dhcp-server-configuration-manager package.
+ *
+ * (c) Tomas Pecserke <tomas@pecserke.eu>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Pecserke\Bundle\IcsDhcpServerManagementBundle\Repository;
 
 use Pecserke\Component\FileLoader\Loader;
@@ -19,11 +28,12 @@ class LeaseRepository {
     /**
      * @var string
      */
-    private $leaseFile = 'scp://ubuntu@ns1.office.maind.sk/var/lib/dhcp/dhcpd.leases'; // FIXME
+    private $leaseFile;
 
-    public function __construct(LeaseParser $parser, Loader $loader) {
+    public function __construct(LeaseParser $parser, Loader $loader, $leaseFile) {
         $this->parser = $parser;
         $this->loader = $loader;
+        $this->leaseFile = $leaseFile;
     }
 
     /**

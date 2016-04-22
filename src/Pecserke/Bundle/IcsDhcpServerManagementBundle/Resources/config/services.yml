@@ -39,6 +39,7 @@ services:
         arguments:
             - "@pecserke_ics_dhcp_server_management.parser.lease"
             - "@pecserke_ics_dhcp_server_management.loader"
+            - "%pecserke_ics_dhcp_server_management.repository.lease.uri%"
 
     pecserke_ics_dhcp_server_management.repository.host:
         class: Pecserke\Bundle\IcsDhcpServerManagementBundle\Repository\HostRepository

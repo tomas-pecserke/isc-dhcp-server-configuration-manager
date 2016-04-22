@@ -40,3 +40,7 @@ framework:
 twig:
     debug: "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+
+pecserke_ics_dhcp_server_management:
+    lease:
+        uri: "%lease_file_uri%"
