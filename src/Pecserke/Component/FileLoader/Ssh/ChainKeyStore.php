@@ -12,9 +12,9 @@ namespace Pecserke\Component\FileLoader\Ssh;
 
 use phpseclib\Crypt\RSA;
 
-class ChainKeyStore implements KeyStore {
+class ChainKeyStoreInterface implements KeyStoreInterface {
     /**
-     * @var KeyStore[]
+     * @var KeyStoreInterface[]
      */
     private $keyStores = [];
 
@@ -59,7 +59,7 @@ class ChainKeyStore implements KeyStore {
         throw new \BadMethodCallException('operation not supported');
     }
 
-    public function registerKeyStore(KeyStore $keyStore) {
+    public function registerKeyStore(KeyStoreInterface $keyStore) {
         if (!in_array($keyStore, $this->keyStores)) {
             $this->keyStores[] = $keyStore;
         }

@@ -10,17 +10,17 @@
 
 namespace Pecserke\Component\FileLoader;
 
-use Pecserke\Component\FileLoader\Ssh\KeyStore;
+use Pecserke\Component\FileLoader\Ssh\KeyStoreInterface;
 use phpseclib\Net\SCP;
 use phpseclib\Net\SSH2;
 
 class ScpLoader extends Loader {
     /**
-     * @var KeyStore
+     * @var KeyStoreInterface
      */
     private $keyStore;
 
-    public function __construct(KeyStore $keyStore) {
+    public function __construct(KeyStoreInterface $keyStore) {
         $this->keyStore = $keyStore;
     }
 

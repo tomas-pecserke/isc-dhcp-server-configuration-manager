@@ -12,7 +12,7 @@ namespace Pecserke\Component\FileLoader\Ssh;
 
 use phpseclib\Crypt\RSA;
 
-class JsonKeyStore extends FileKeyStore {
+class JsonKeyStore extends FileKeyStoreInterface {
     /**
      * @param \SplFileInfo|string $file
      */
@@ -23,7 +23,7 @@ class JsonKeyStore extends FileKeyStore {
         parent::__construct($file);
     }
 
-    protected function load(\SplFileInfo $file, KeyStore $cache) {
+    protected function load(\SplFileInfo $file, KeyStoreInterface $cache) {
         $handle = $file->openFile();
         $content = $handle->fread($handle->getSize());
         $json = json_decode($content);
@@ -40,7 +40,7 @@ class JsonKeyStore extends FileKeyStore {
         }
     }
 
-    protected function save(\SplFileInfo $file, KeyStore $cache) {
+    protected function save(\SplFileInfo $file, KeyStoreInterface $cache) {
         $hosts = $cache->getHosts();
 
         $json = [];

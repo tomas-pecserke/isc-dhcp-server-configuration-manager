@@ -12,9 +12,9 @@ namespace Pecserke\Component\FileLoader\Ssh;
 
 use phpseclib\Crypt\RSA;
 
-abstract class FileKeyStore implements KeyStore {
+abstract class FileKeyStoreInterface implements KeyStoreInterface {
     /**
-     * @var KeyStore
+     * @var KeyStoreInterface
      */
     private $cache;
 
@@ -30,7 +30,7 @@ abstract class FileKeyStore implements KeyStore {
 
     public function __construct(\SplFileInfo $file) {
         $this->file = $file;
-        $this->cache = new ArrayKeyStore();
+        $this->cache = new ArrayKeyStoreInterface();
     }
 
     public function getHosts() {
@@ -86,7 +86,7 @@ abstract class FileKeyStore implements KeyStore {
         return $file->isFile() || $file->isDir() || $file->isLink();
     }
 
-    protected abstract function load(\SplFileInfo $file, KeyStore $cache);
+    protected abstract function load(\SplFileInfo $file, KeyStoreInterface $cache);
 
-    protected abstract function save(\SplFileInfo $file, KeyStore $cache);
+    protected abstract function save(\SplFileInfo $file, KeyStoreInterface $cache);
 }
