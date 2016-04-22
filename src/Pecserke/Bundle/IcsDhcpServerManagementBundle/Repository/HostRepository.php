@@ -10,37 +10,38 @@
 
 namespace Pecserke\Bundle\IcsDhcpServerManagementBundle\Repository;
 
+use Pecserke\Component\FileLoader\Loader;
 use Pecserke\Component\IcsDhcpServer\Configuration\Host;
 use Pecserke\Component\IcsDhcpServer\Parser\HostParser;
 
 class HostRepository {
     /**
+     * @var string
+     */
+    private $hostsFileUri;
+
+    /**
+     * @var Loader
+     */
+    private $loader;
+    /**
      * @var HostParser
      */
     private $parser;
 
-    /**
-     * @var string[]
-     */
-    private $hostFiles;
-
-    public function __construct(HostParser $parser) {
+    public function __construct(HostParser $parser, Loader $loader, $hostsFileUri) {
         $this->parser = $parser;
-        $this->hostFiles = [
-            __DIR__ . '/../../../Component/IcsDhcpServer/Tests/Fixtures/hosts.conf' // FIXME
-        ];
+        $this->loader = $loader;
+        $this->hostsFileUri = $hostsFileUri;
     }
 
     /**
      * @return Host[]
      */
     public function getHosts() {
-        $hosts = [];
-        foreach ($this->hostFiles as $hostFile) {
-            $config = $this->parser->parseFile($hostFile);
-            $hosts = array_merge($hosts, $config->getHosts());
-        }
+        $content = $this->loader->load($this->hostsFileUri);
+        $config = $this->parser->parse($content);
 
-        return $hosts;
+        return $config->getHosts();
     }
 }

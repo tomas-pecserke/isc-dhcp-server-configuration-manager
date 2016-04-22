@@ -17,3 +17,4 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     lease_file_uri:     ~
+    hosts_file_uri:     ~

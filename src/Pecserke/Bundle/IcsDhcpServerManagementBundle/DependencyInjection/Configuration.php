@@ -25,6 +25,11 @@ class Configuration implements ConfigurationInterface {
                         ->scalarNode('uri')->cannotBeEmpty()->end()
                     ->end()
                 ->end()
+                ->arrayNode('hosts')
+                    ->children()
+                    ->scalarNode('uri')->cannotBeEmpty()->end()
+                    ->end()
+                ->end()
             ->end()
         ;
 

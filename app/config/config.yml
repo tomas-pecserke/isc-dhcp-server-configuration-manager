@@ -44,3 +44,5 @@ twig:
 pecserke_ics_dhcp_server_management:
     lease:
         uri: "%lease_file_uri%"
+    hosts:
+        uri: "%hosts_file_uri%"

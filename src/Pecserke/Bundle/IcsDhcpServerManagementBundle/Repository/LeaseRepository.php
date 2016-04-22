@@ -16,6 +16,11 @@ use Pecserke\Component\IcsDhcpServer\Parser\LeaseParser;
 
 class LeaseRepository {
     /**
+     * @var string
+     */
+    private $leaseFileUri;
+
+    /**
      * @var Loader
      */
     private $loader;
@@ -25,22 +30,17 @@ class LeaseRepository {
      */
     private $parser;
 
-    /**
-     * @var string
-     */
-    private $leaseFile;
-
-    public function __construct(LeaseParser $parser, Loader $loader, $leaseFile) {
+    public function __construct(LeaseParser $parser, Loader $loader, $leaseFileUri) {
         $this->parser = $parser;
         $this->loader = $loader;
-        $this->leaseFile = $leaseFile;
+        $this->leaseFileUri = $leaseFileUri;
     }
 
     /**
      * @return \Pecserke\Component\IcsDhcpServer\Lease\Lease[]
      */
     public function getLeases() {
-        $content = $this->loader->load($this->leaseFile);
+        $content = $this->loader->load($this->leaseFileUri);
         $leaseFile = $this->parser->parse($content);
 
         return $leaseFile->getLeases();

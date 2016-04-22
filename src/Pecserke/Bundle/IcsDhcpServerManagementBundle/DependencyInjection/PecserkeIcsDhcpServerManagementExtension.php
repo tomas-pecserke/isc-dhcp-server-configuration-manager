@@ -22,5 +22,6 @@ class PecserkeIcsDhcpServerManagementExtension extends Extension {
         $container->setParameter('pecserke_ics_dhcp_server_management.ssh.key_store.json.file', $jsonFile);
 
         $container->setParameter('pecserke_ics_dhcp_server_management.repository.lease.uri', $config['lease']['uri']);
+        $container->setParameter('pecserke_ics_dhcp_server_management.repository.hosts.uri', $config['hosts']['uri']);
     }
 }
