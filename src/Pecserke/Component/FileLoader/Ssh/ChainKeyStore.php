@@ -12,7 +12,7 @@ namespace Pecserke\Component\FileLoader\Ssh;
 
 use phpseclib\Crypt\RSA;
 
-class ChainKeyStoreInterface implements KeyStoreInterface {
+class ChainKeyStore implements KeyStoreInterface {
     /**
      * @var KeyStoreInterface[]
      */

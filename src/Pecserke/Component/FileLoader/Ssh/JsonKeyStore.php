@@ -12,7 +12,7 @@ namespace Pecserke\Component\FileLoader\Ssh;
 
 use phpseclib\Crypt\RSA;
 
-class JsonKeyStore extends FileKeyStoreInterface {
+class JsonKeyStore extends FileKeyStore {
     /**
      * @param \SplFileInfo|string $file
      */

@@ -12,7 +12,7 @@ namespace Pecserke\Component\FileLoader\Ssh;
 
 use phpseclib\Crypt\RSA;
 
-abstract class FileKeyStoreInterface implements KeyStoreInterface {
+abstract class FileKeyStore implements KeyStoreInterface {
     /**
      * @var KeyStoreInterface
      */
@@ -30,7 +30,7 @@ abstract class FileKeyStoreInterface implements KeyStoreInterface {
 
     public function __construct(\SplFileInfo $file) {
         $this->file = $file;
-        $this->cache = new ArrayKeyStoreInterface();
+        $this->cache = new ArrayKeyStore();
     }
 
     public function getHosts() {
