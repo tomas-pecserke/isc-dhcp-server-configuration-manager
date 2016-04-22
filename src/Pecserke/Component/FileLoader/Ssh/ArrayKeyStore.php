@@ -8,35 +8,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Pecserke\Component\FileLoader;
+namespace Pecserke\Component\FileLoader\Ssh;
 
 use phpseclib\Crypt\RSA;
 
-class SshKeyStore {
+class ArrayKeyStore implements KeyStore {
     /**
      * @var RSA[]
      */
     protected $keys = [];
 
-    public function __construct() {
-        $rsa = new RSA();
-        $rsa->loadKey(file_get_contents('/home/nh/id_rsa'));
-        $this->set('ns1.office.maind.sk', $rsa); // FIXME
+    public function getHosts() {
+        return array_keys($this->keys);
     }
 
-    /**
-     * @param string $host
-     * @return bool
-     */
     public function has($host) {
         $host = strtolower($host);
+
         return isset($this->keys[$host]);
     }
 
-    /**
-     * @param string $host
-     * @return RSA
-     */
     public function get($host) {
         $host = strtolower($host);
         if (!isset($this->keys[$host])) {
@@ -46,11 +37,18 @@ class SshKeyStore {
         return $this->keys[$host];
     }
 
-    /**
-     * @param string $host
-     * @param RSA $rsa
-     */
     public function set($host, RSA $rsa) {
+        $host = strtolower($host);
         $this->keys[$host] = $rsa;
+    }
+
+    public function remove($host) {
+        $host = strtolower($host);
+        unset($this->keys[$host]);
+    }
+
+    public function clear() {
+        unset($this->keys);
+        $this->keys = [];
     }
 }

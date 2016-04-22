@@ -11,6 +11,10 @@
 !var/cache/.gitkeep
 !var/logs/.gitkeep
 
+# Dynamic configuration
+/var/conf/*
+!var/conf/.gitkeep
+
 # Parameters
 /app/config/parameters.yml
 /app/config/parameters.ini

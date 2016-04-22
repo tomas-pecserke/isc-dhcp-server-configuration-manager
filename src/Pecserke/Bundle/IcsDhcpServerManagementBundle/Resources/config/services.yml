@@ -1,6 +1,15 @@
 services:
+    pecserke_ics_dhcp_server_management.ssh.key_store.chain:
+        class: Pecserke\Component\FileLoader\Ssh\ChainKeyStore
+
+    pecserke_ics_dhcp_server_management.ssh.key_store.json:
+        class: Pecserke\Component\FileLoader\Ssh\JsonKeyStore
+        arguments: [ "%pecserke_ics_dhcp_server_management.ssh.key_store.json.file%" ]
+        tags:
+            -  { name: pecserke_ics_dhcp_server_management.ssh_key_store }
+
     pecserke_ics_dhcp_server_management.ssh.key_store:
-        class: Pecserke\Component\FileLoader\SshKeyStore
+        alias: pecserke_ics_dhcp_server_management.ssh.key_store.chain
 
     pecserke_ics_dhcp_server_management.loader.scp:
         class: Pecserke\Component\FileLoader\ScpLoader
